@@ -1,7 +1,5 @@
 ﻿using BepInEx;
 using HarmonyLib;
-using Lean.Pool;
-using MyBox;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,7 +13,7 @@ namespace NightShift
         private void Awake()
         {
             Instance = this;
-            Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded! Applying patch...");
+            //Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded! Applying patch...");
             Harmony harmony = new Harmony(PluginInfo.PLUGIN_GUID);
             harmony.PatchAll();
         }
@@ -25,7 +23,7 @@ namespace NightShift
         }
         public void InstantRestock()
         {
-            Logger.LogWarning("Running instant restock");
+            //Logger.LogWarning("Running instant restock");
 
             var indexedRackSlots = Singleton<RackManager>.Instance.m_RackSlots.ToDictionary(x => x.Key, x => x.Value);
             foreach (var key in indexedRackSlots.Keys.ToArray())
